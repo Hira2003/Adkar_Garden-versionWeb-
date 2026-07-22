@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌸 Adkar Garden | حديقة الأذكار 🌿</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header Controls -->
+    <div class="header-actions">
+      <button id="openModalBtn" class="btn btn-add">إضافة</button>
+      <div class="data-actions">
+        <label for="importFile" class="btn btn-secondary">استيراد CSV/JSON</label>
+        <input type="file" id="importFile" accept=".json,.csv" hidden>
+        <button id="exportCsvBtn" class="btn btn-secondary">تصدير CSV</button>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="app-title">🌸 Adkar Garden | حديقة الأذكار 🌿</h1>
+
+    <!-- Image -->
+    <div class="image-container">
+      <img src="icn.jpg" alt="Adkar Icon" id="appIcon" onerror="this.style.display='none'">
+    </div>
+
+    <!-- Counters -->
+    <div class="counter-card" id="counterLabel">
+      عدد الأذكار اليوم: 0 | المجموع: 0
+    </div>
+
+    <!-- Main Highlighted Dikr -->
+    <button class="btn btn-special" id="specialDikrBtn">
+      ربي إني لما انزلت إلي من خير فقير
+    </button>
+
+    <!-- Auto-updating Clock -->
+    <div class="time-label" id="timeLabel">--:--:--</div>
+
+    <!-- Scrollable Adkar List -->
+    <div class="scroll-area">
+      <div class="adkar-list" id="adkarListContainer">
+        <!-- Buttons rendered dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Dikr Modal (Dialog) -->
+  <div class="modal-overlay" id="addModal">
+    <div class="modal-content">
+      <h2>إضافة ذكر جديد</h2>
+      <p>اكتب الذكر الجديد (بدون جمل أو أحاديث):</p>
+      <input type="text" id="dikrInput" placeholder="أدخل الذكر هنا...">
+      <div class="modal-buttons">
+        <button id="saveDikrBtn" class="btn btn-add">حفظ</button>
+        <button id="closeModalBtn" class="btn btn-cancel">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hourly Notification Toast/Alert -->
+  <div class="toast-overlay" id="toastOverlay">
+    <div class="toast-card">
+      <h3>⏰ تذكير بالذكر ⏰</h3>
+      <p id="toastMessage"></p>
+      <button id="closeToastBtn" class="btn btn-special">تم</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
