@@ -30,10 +30,6 @@ const toastOverlay = document.getElementById('toastOverlay');
 const toastMessage = document.getElementById('toastMessage');
 const closeToastBtn = document.getElementById('closeToastBtn');
 
-// Import / Export Elements
-const importFile = document.getElementById('importFile');
-const exportCsvBtn = document.getElementById('exportCsvBtn');
-
 // 1. Validation Logic
 function isValidDikr(text) {
   const trimmed = text.trim();
@@ -185,59 +181,6 @@ function showHourlyDikr() {
   }
 }
 
-// 5. Connecting with CSV and JSON Files (Import / Export)
-function handleFileImport(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-
-  if (file.name.endsWith('.json')) {
-    reader.onload = function(evt) {
-      try {
-        const parsed = JSON.parse(evt.target.result);
-        const importedList = parsed.adkar || (Array.isArray(parsed) ? parsed : []);
-        if (importedList.length > 0) {
-          adkarList = importedList;
-          saveAdkarList();
-          renderAdkarButtons();
-          alert('تم استيراد الأذكار من ملف JSON بنجاح!');
-        }
-      } catch (err) {
-        alert('خطأ في قراءة ملف JSON');
-      }
-    };
-    reader.readAsText(file);
-  } else if (file.name.endsWith('.csv')) {
-    reader.onload = function(evt) {
-      const text = evt.target.result;
-      // Split by lines or commas
-      const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
-      if (lines.length > 0) {
-        adkarList = lines;
-        saveAdkarList();
-        renderAdkarButtons();
-        alert('تم استيراد الأذكار من ملف CSV بنجاح!');
-      }
-    };
-    reader.readAsText(file);
-  }
-}
-
-function exportToCsv() {
-  // Convert adkar array into CSV string
-  const csvContent = "\uFEFF" + adkarList.map(item => `"${item.replace(/"/g, '""')}"`).join("\n");
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-
-  const link = document.createElement("a");
-  link.setAttribute("href", url);
-  link.setAttribute("download", `adkar_export_${countDate}.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
-
 // Event Listeners
 specialDikrBtn.addEventListener('click', incrementCounter);
 openModalBtn.addEventListener('click', () => addModal.classList.add('active'));
@@ -254,9 +197,6 @@ saveDikrBtn.addEventListener('click', () => {
   dikrInput.value = '';
   addModal.classList.remove('active');
 });
-
-importFile.addEventListener('change', handleFileImport);
-exportCsvBtn.addEventListener('click', exportToCsv);
 
 // Initialization
 loadCounts();
