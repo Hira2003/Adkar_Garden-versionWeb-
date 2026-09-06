@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌗 حديقة الصباح والمساء | Adkar Garden</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Top Bar -->
+    <div class="page-top-bar">
+      <a href="../index.html" class="btn-back">‹ رجوع</a>
+      <div class="page-title">🌗 الصباح والمساء</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tab-switch">
+      <button class="tab-btn tab-morning active" id="tabMorningBtn">🌅 أذكار الصباح</button>
+      <button class="tab-btn tab-evening" id="tabEveningBtn">🌙 أذكار المساء</button>
+    </div>
+
+    <!-- Progress Summary -->
+    <div class="dhikr-progress-summary" id="progressSummary">
+      تم إكمال 0 من 0
+    </div>
+
+    <!-- Scrollable Dhikr List -->
+    <div class="scroll-area" id="dhikrScrollArea" style="max-height: 60vh;">
+      <div class="adkar-list" id="dhikrListContainer">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+    </div>
+
+    <div class="reset-note">تُصفَّر القوائم تلقائيًا مع بداية كل يوم جديد 🌱</div>
+  </div>
+
+  <script src="morning-evening.js"></script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1a1a33;
+  color: #d9f1fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.app-container {
+  background-color: #232345;
+  width: 100%;
+  max-width: 430px;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Header Buttons */
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.data-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-add {
+  background-color: #a175d1;
+  color: #fff;
+  padding: 7px 14px;
+  font-size: 14px;
+}
+
+.btn-add:hover {
+  background-color: #7b3ff2;
+}
+
+.btn-add:active {
+  transform: scale(0.95);
+}
+
+.btn-secondary {
+  background-color: #3d2c6d;
+  color: #c7e9fb;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.btn-secondary:hover {
+  background-color: #5a58a8;
+}
+
+.btn-secondary:active {
+  transform: scale(0.95);
+}
+
+.btn-cancel {
+  background-color: #f06292;
+  color: #fff;
+  padding: 7px 16px;
+  font-size: 15px;
+}
+
+.btn-cancel:hover {
+  background-color: #c2185b;
+}
+
+.btn-cancel:active {
+  transform: scale(0.95);
+}
+
+.btn-special {
+  background: linear-gradient(135deg, #7b3ff2, #2e90db);
+  color: #fff;
+  font-size: 16px;
+  border-radius: 16px;
+  padding: 12px;
+  width: 100%;
+  min-height: 44px;
+}
+
+.btn-special:hover {
+  background: #a175d1;
+}
+
+.btn-special:active {
+  transform: scale(0.98);
+}
+
+.btn-dikr {
+  background: linear-gradient(135deg, #5a58a8, #2e90db);
+  color: #d9f1fd;
+  font-size: 15px;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  min-height: 40px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.btn-dikr:hover {
+  background: #7b3ff2;
+  color: #fff;
+}
+
+.btn-dikr:active {
+  transform: scale(0.97);
+}
+
+/* Header & Text */
+.app-title {
+  color: #c7e9fb;
+  font-size: 20px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.image-container {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.image-container img {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Navigation Cards (home screen) */
+.nav-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #2b2b52, #232345);
+  border: 1px solid rgba(123, 63, 242, 0.35);
+  border-radius: 16px;
+  padding: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.nav-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(123, 63, 242, 0.7);
+  box-shadow: 0 8px 22px rgba(123, 63, 242, 0.35);
+}
+
+.nav-card:active {
+  transform: scale(0.98);
+}
+
+.nav-card-icon {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.nav-card--garden .nav-card-icon {
+  background: linear-gradient(135deg, #f6b93b, #2e90db);
+}
+
+.nav-card--checklist .nav-card-icon {
+  background: linear-gradient(135deg, #2ecc71, #7b3ff2);
+}
+
+.nav-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.nav-card-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #c7e9fb;
+}
+
+.nav-card-sub {
+  font-size: 12px;
+  color: #9aa8cf;
+}
+
+.nav-card-arrow {
+  color: #7b3ff2;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Shared sub-page layout */
+.page-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-back {
+  background-color: #3d2c6d;
+  color: #c7e9fb;
+  padding: 7px 14px;
+  font-size: 14px;
+  border-radius: 13px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-back:hover {
+  background-color: #5a58a8;
+}
+
+.btn-back:active {
+  transform: scale(0.95);
+}
+
+.page-title {
+  color: #c7e9fb;
+  font-size: 18px;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Tabs (Morning / Evening) */
+.tab-switch {
+  display: flex;
+  background-color: #1a1a33;
+  border-radius: 13px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.tab-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #9aa8cf;
+  padding: 9px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active.tab-morning {
+  background: linear-gradient(135deg, #f6b93b, #f39c12);
+  color: #232345;
+}
+
+.tab-btn.active.tab-evening {
+  background: linear-gradient(135deg, #3742fa, #2e90db);
+  color: #fff;
+}
+
+/* Dhikr progress cards (morning/evening page) */
+.dhikr-progress-summary {
+  color: #d9f1fd;
+  background-color: #3d2c6d;
+  border-radius: 12px;
+  padding: 8px 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.dhikr-card {
+  background-color: #2b2b52;
+  border: 1px solid rgba(123, 63, 242, 0.25);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: right;
+}
+
+.dhikr-card:active {
+  transform: scale(0.98);
+}
+
+.dhikr-card-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #d9f1fd;
+}
+
+.dhikr-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dhikr-count-pill {
+  background-color: #1a1a33;
+  color: #b48de3;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  min-width: 46px;
+  text-align: center;
+}
+
+.dhikr-progress-bar {
+  flex-grow: 1;
+  height: 6px;
+  background-color: #1a1a33;
+  border-radius: 4px;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.dhikr-progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #7b3ff2, #2e90db);
+  border-radius: 4px;
+  transition: width 0.2s ease;
+  width: 0%;
+}
+
+.dhikr-card.done {
+  border-color: rgba(46, 204, 113, 0.6);
+  background-color: #223d33;
+  opacity: 0.75;
+}
+
+.dhikr-card.done .dhikr-progress-fill {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.dhikr-card.done .dhikr-count-pill {
+  color: #6ee7a3;
+}
+
+.dhikr-check {
+  font-size: 15px;
+}
+
+/* Checklist page */
+.checklist-progress-summary {
+  color: #d9f1fd;
+  background-color: #3d2c6d;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checklist-progress-bar {
+  height: 8px;
+  background-color: #1a1a33;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.checklist-progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  border-radius: 5px;
+  transition: width 0.2s ease;
+  width: 0%;
+}
+
+.checklist-group-label {
+  color: #9aa8cf;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 2px 0 2px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #2b2b52;
+  border: 1px solid rgba(123, 63, 242, 0.2);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checklist-item:active {
+  transform: scale(0.98);
+}
+
+.checklist-item.checked {
+  background-color: #223d33;
+  border-color: rgba(46, 204, 113, 0.55);
+}
+
+.checklist-item-icon {
+  font-size: 19px;
+  width: 26px;
+  text-align: center;
+}
+
+.checklist-item-label {
+  flex-grow: 1;
+  font-size: 14.5px;
+  color: #d9f1fd;
+}
+
+.checklist-item.checked .checklist-item-label {
+  color: #a7e9c4;
+  text-decoration: line-through;
+  text-decoration-color: rgba(167, 233, 196, 0.5);
+}
+
+.checklist-checkbox {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: 8px;
+  border: 2px solid #5a58a8;
+  background-color: #1a1a33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: transparent;
+  transition: all 0.2s ease;
+}
+
+.checklist-item.checked .checklist-checkbox {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  border-color: #2ecc71;
+  color: #fff;
+}
+
+.reset-note {
+  color: #6b6b99;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 4px;
+}
+
+.counter-card {
+  color: #d9f1fd;
+  background-color: #3d2c6d;
+  border-radius: 12px;
+  padding: 8px 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.time-label {
+  color: #b48de3;
+  text-align: center;
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+/* Scroll Area */
+.scroll-area {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+  flex-grow: 1;
+}
+
+.scroll-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+  background: #3d2c6d;
+  border-radius: 4px;
+}
+
+.adkar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Modals & Overlays */
+.modal-overlay, .toast-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 10px;
+}
+
+.modal-overlay.active, .toast-overlay.active {
+  display: flex;
+}
+
+.modal-content, .toast-card {
+  background-color: #232345;
+  padding: 16px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.modal-content h2 {
+  font-size: 18px;
+  color: #c7e9fb;
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #d9f1fd;
+}
+
+.modal-content input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #fff;
+  color: #232345;
+  font-size: 14px;
+  width: 100%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modal-buttons .btn {
+  flex: 1;
+  min-width: 80px;
+}
+
+.toast-card {
+  text-align: center;
+}
+
+.toast-card h3 {
+  font-size: 16px;
+  color: #c7e9fb;
+}
+
+.toast-card p {
+  color: #7b3ff2;
+  font-size: 16px;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  .app-container {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 16px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .data-actions {
+    gap: 4px;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .btn-add {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .btn-secondary {
+    padding: 5px 8px;
+    font-size: 11px;
+    flex: 1;
+    min-width: 70px;
+  }
+
+  .app-title {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+
+  .image-container img {
+    width: 80px;
+  }
+
+  .counter-card {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .time-label {
+    font-size: 12px;
+  }
+
+  .btn-special {
+    font-size: 15px;
+    min-height: 42px;
+    padding: 10px;
+  }
+
+  .btn-dikr {
+    font-size: 14px;
+    padding: 9px;
+    min-height: 38px;
+  }
+
+  .scroll-area {
+    max-height: 200px;
+  }
+
+  .modal-content, .toast-card {
+    max-width: 85%;
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .modal-content h2 {
+    font-size: 16px;
+  }
+
+  .modal-content p {
+    font-size: 13px;
+  }
+
+  .modal-content input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .toast-card h3 {
+    font-size: 15px;
+  }
+
+  .toast-card p {
+    font-size: 15px;
+  }
+
+  .modal-buttons {
+    gap: 6px;
+  }
+
+  .modal-buttons .btn {
+    min-width: 70px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .app-container {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+
+  .btn-add {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .btn-secondary {
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .app-title {
+    font-size: 16px;
+  }
+
+  .image-container img {
+    width: 70px;
+  }
+
+  .counter-card {
+    font-size: 12px;
+    padding: 5px 6px;
+  }
+
+  .time-label {
+    font-size: 11px;
+  }
+
+  .scroll-area {
+    max-height: 180px;
+  }
+
+  .btn-dikr {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
